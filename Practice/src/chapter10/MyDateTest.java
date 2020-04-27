@@ -10,9 +10,23 @@ class MyDate{
 		this.month = month;
 		this.year = year;
 	}
-	
-	
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof MyDate) {
+			MyDate date = (MyDate)obj;
+			if(this.day == date.day && this.year == date.year && this.month == date.month)
+				return true;
+			return false;
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return day*11 +  month*101+ year * 1001;
+	}
+
 }
 
 
